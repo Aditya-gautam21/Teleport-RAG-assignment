@@ -1,5 +1,5 @@
 from langchain_text_splitters import RecursiveCharacterTextSplitter
-from data_loader import load_data
+from services.data_loader import load_data
 
 def text_splitter():
     text = load_data()
@@ -7,6 +7,3 @@ def text_splitter():
 
     chunks = splitter.split_documents(text)
     return chunks
-
-if __name__ == '__main__':
-    text_splitter()
