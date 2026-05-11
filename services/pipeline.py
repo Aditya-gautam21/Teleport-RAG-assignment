@@ -31,9 +31,11 @@ class RAGPipeline:
         self.vector_store.save_local(str(self.index_path))
         return self.vector_store
 
-    def load_index(self):
+    def load_index(self, file_path=None):
         if not self.index_file.exists():
-            self.vector_store = self.ingest()
+            if file_path is None:
+                raise ValueError("index not found. Provide file_path to ingest data.")
+            self.vector_store = self.ingest(file_path)
 
         else:
             self.vector_store = FAISS.load_local(
