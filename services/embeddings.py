@@ -1,3 +1,4 @@
+import faiss
 from langchain_huggingface import HuggingFaceEmbeddings
 from services.chunker import text_splitter
 
